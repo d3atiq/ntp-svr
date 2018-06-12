@@ -1,0 +1,15 @@
+---
+# handlers file for ntp-svr
+
+- name: start ntp
+  become: true
+  service:
+    name: ntp
+    state: started
+
+- name: restart ntp
+  become: true
+  service:
+    name: ntp
+    state: restarted
+

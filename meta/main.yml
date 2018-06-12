@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Douglas Atique
+  description: NTP server configuration role
+
+  license: MIT
+
+  min_ansible_version: 2.5
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+
+  galaxy_tags: []
+
+dependencies: []
+

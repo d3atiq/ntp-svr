@@ -1,0 +1,27 @@
+---
+# tasks file for ntp-svr configuration
+
+- name: Remove default NTP servers
+  become: true
+  lineinfile:
+    path: /etc/ntp.conf
+    regexp: '^(pool|server) '
+    state: absent
+
+- name: Set NTP servers
+  become: true
+  lineinfile:
+    path: /etc/ntp.conf
+    state: present
+    line: "server {{ item }} iburst"
+  with_items: "{{ ntpd.servers }}"
+
+- name: Set NTP network
+  become: true
+  lineinfile:
+    path: /etc/ntp.conf
+    regexp: '^broadcast '
+    line: "broadcast {{ item | ipaddr('broadcast') }}"
+    state: present
+  with_items: "{{ ntpd.network }}"
+
