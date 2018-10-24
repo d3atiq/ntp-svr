@@ -5,9 +5,6 @@
   become: true
   apt:
     update_cache: true
-    name: "{{ item }}"
+    name: ntp
     state: present
   notify: start ntp
-  with_items:
-    - ntp
-
