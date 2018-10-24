@@ -3,4 +3,3 @@
 
 - include_tasks: apt.yml
 - include_tasks: ntp.yml
-

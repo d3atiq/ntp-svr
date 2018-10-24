@@ -24,4 +24,3 @@
     line: "broadcast {{ item | ipaddr('broadcast') }}"
     state: present
   with_items: "{{ ntpd.network }}"
-
